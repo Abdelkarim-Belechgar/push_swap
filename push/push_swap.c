@@ -25,6 +25,9 @@ int	main(int argc, char **argv)
 	{
 		check_args(++argv, &a);
 		ft_print(a);
+		ft_putstr("----------------------\n");
+		sa_swap(&a);
+		ft_print(a);
 		ft_lstclear(&a);
 		ft_putstr("**********************\n");
 		ft_putstr("stack has bes save successefuly\n");

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "parsing.h"
 
 bool	ft_is_duplicate(t_stack **head, int number, size_t *index)
 {
