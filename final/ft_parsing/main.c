@@ -1,28 +1,50 @@
 #include "../push_swap.h"
 #include <stdio.h>
 
+void	ft_print(t_stack *head)
+{
+	size_t	z;
+
+	z = 0;
+	while (head)
+	{
+		printf("head->nbr[%u] = %d\n", z, head->nbr);
+		printf("head->idx[%u] = %d\n", z, head->idx);
+		printf("************************\n");
+		z++;
+		head = head->next;
+	}
+	printf("stack has ben save successfuly\n");
+}
+
 int	main(int argc, char **argv)
 {
-	t_stack	*head;
-	t_stack	*node;
+	t_stack	*a;
+	t_stack	*b;
+	int	size;
 
-	head = NULL;
+	b = NULL;
+	a = NULL;
 	if (argc > 1)
 	{
 		while (*(++argv))
-			ft_split(*argv, &head);
-		node = head;
-		size_t	z = 0;
-		while (node)
+			ft_split(*argv, &a);
+		ft_print(a);
+		printf("-----------------------------------------------\n");
+		size = ft_lstsize(a);
+		if (size > 1)
 		{
-			printf("node->nbr[%u] = %d\n", z, node->nbr);
-			printf("node->idx[%u] = %d\n", z, node->idx);
-			printf("************************\n");
-			z++;
-			node = node->next;
+			if (size < 4)
+				sort_three(&a, size);
+			else if (size < 6)
+				sort_five(&a, &b, size);
+			else
+				sort(&a, &b, size);
 		}
-		ft_lstclear(&head);
-		printf("stack has ben save successfuly\n");
+		printf("-----------------------------------------------\n");
+		ft_print(a);
+		ft_lstclear(&a);
+		printf("stack has ben clear successfuly\n");
 	}
 	else
 		return (EXIT_FAILURE);
