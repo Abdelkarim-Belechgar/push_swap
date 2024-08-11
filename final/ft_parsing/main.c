@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 			else if (size < 6)
 				sort_five(&a, &b, size);
 			else
-				sort(&a, &b, size);
+				sort_end(&a, &b, size);
 		}
 		printf("-----------------------------------------------\n");
 		ft_print(a);

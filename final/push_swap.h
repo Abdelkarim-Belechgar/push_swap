@@ -73,5 +73,9 @@ void	ft_ss(t_stack **a, t_stack **b, bool flag);
 ///////	algo
 //	sort three
 void	sort_three(t_stack **head, int size);
+//	sort five
+void	sort_five(t_stack **a, t_stack **b, int size);
+//	sort end
+void	sort_end(t_stack **a, t_stack **b, int size);
 
 #endif
