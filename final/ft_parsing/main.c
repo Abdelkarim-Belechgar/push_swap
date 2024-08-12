@@ -29,8 +29,8 @@ int	main(int argc, char **argv)
 	{
 		while (*(++argv))
 			ft_split(*argv, &a);
-		ft_print(a);
-		printf("-----------------------------------------------\n");
+//		ft_print(a);
+//		printf("-----------------------------------------------\n");
 		size = ft_lstsize(a);
 		if (size > 1)
 		{
@@ -41,9 +41,14 @@ int	main(int argc, char **argv)
 			else
 				sort_end(&a, &b, size);
 		}
-		printf("-----------------------------------------------\n");
-		ft_print(a);
+//		printf("-----------------------------------------------\n");
+//		printf("stack a\n");
+//		ft_print(a);
+//		printf("stack b\n");
+//		ft_print(b);
+//		printf("-----------------------------------------------\n");
 		ft_lstclear(&a);
+		ft_lstclear(&b);
 		printf("stack has ben clear successfuly\n");
 	}
 	else

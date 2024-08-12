@@ -12,6 +12,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }		t_stack;
 
+void	ft_print(t_stack *head);
 ///////	ft_printf
 //	print character
 void	ft_putchar(char c, int fd);
@@ -71,11 +72,16 @@ void	ft_sb(t_stack **head, bool flag);
 void	ft_ss(t_stack **a, t_stack **b, bool flag);
 
 ///////	algo
+//	calcul
+bool	calcul(t_stack *head, int size);
 //	sort three
 void	sort_three(t_stack **head, int size);
 //	sort five
 void	sort_five(t_stack **a, t_stack **b, int size);
 //	sort end
 void	sort_end(t_stack **a, t_stack **b, int size);
-
+//	swap_tow_close
+void	swap_tow_close(t_stack **head, bool flag);
+//	range algo
+void	range_algo(t_stack **a, t_stack **b, int end, int size);
 #endif
