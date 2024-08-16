@@ -3,7 +3,7 @@
 void	ft_split(char *str, t_stack **head)
 {
 	t_stack	*new;
-	int	nbr;
+	int		nbr;
 	size_t	idx;
 	size_t	spaces;
 

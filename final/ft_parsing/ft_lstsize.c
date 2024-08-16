@@ -1,9 +1,9 @@
 #include "../push_swap.h"
 
-int	ft_lstsize(t_stack *head)
+size_t	ft_lstsize(t_stack *head)
 {
-	int	size;
-	int	sort;
+	size_t	size;
+	size_t	sort;
 
 	sort = 0;
 	size = 0;

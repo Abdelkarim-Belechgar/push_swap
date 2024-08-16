@@ -2,8 +2,8 @@
 
 void	ft_ra(t_stack **head, bool flag)
 {
-	void *new;
-	void *node;
+	void	*new;
+	void	*node;
 
 	if (*head && (*head)->next)
 	{
@@ -21,8 +21,8 @@ void	ft_ra(t_stack **head, bool flag)
 
 void	ft_rb(t_stack **head, bool flag)
 {
-	void *new;
-	void *node;
+	void	*new;
+	void	*node;
 
 	if (*head && (*head)->next)
 	{
@@ -44,5 +44,4 @@ void	ft_rr(t_stack **a, t_stack **b, bool flag)
 	ft_rb(b, false);
 	if (flag)
 		ft_putstr("rr\n", 1);
-
 }

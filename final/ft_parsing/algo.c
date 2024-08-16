@@ -26,14 +26,17 @@ bool	calcul(t_stack *head, int size)
 
 void	sort_three(t_stack **a, int size)
 {
+	size_t	idx;
+
+	idx = (*a)->next->idx;
 	if (size == 3)
 	{
-		if ((*a)->idx > (*a)->next->idx && (*a)->idx > (*a)->next->next->idx)
+		if ((*a)->idx > idx && (*a)->idx > (*a)->next->next->idx)
 			ft_ra(a, true);
-		else if ((*a)->next->idx > (*a)->idx && (*a)->next->idx > (*a)->next->next->idx)
+		else if (idx > (*a)->idx && idx > (*a)->next->next->idx)
 			ft_rra(a, true);
 	}
-	if ((*a)->idx > (*a)->next->idx)
+	if ((*a)->idx > idx)
 		ft_sa(a, true);
 }
 
@@ -78,9 +81,10 @@ void	swap_tow_close(t_stack **head, bool flag)
 			ft_sb(head, true);
 	}
 }
-int	get_position(t_stack *head, int size)
+
+int	get_position(t_stack *head, size_t size)
 {
-	int	idx;
+	size_t	idx;
 
 	idx = 0;
 	while (head)
@@ -92,19 +96,23 @@ int	get_position(t_stack *head, int size)
 	}
 	if (idx == 0)
 		return (0);
-	if (idx <= size / 2)	//rb
+	if (idx <= (size / 2))
 		return (1);
 	return (2);
 }
 
 void	complite_algo(t_stack **a, t_stack **b)
 {
-	int	size;
-	int	position;
-	
-	while (*b && (size = ft_lstsize(*b)))
+	size_t	size;
+	int		position;
+
+	while (*b)
 	{
-		position = get_position(*b, size -1);
+		size = ft_lstsize(*b);
+		if (size > 1)
+			position = get_position(*b, size - 1);
+		else
+			position = 0;
 		if (!position)
 			ft_pa(a, b, true);
 		else if (position == 1)
@@ -114,19 +122,20 @@ void	complite_algo(t_stack **a, t_stack **b)
 	}
 }
 
-void	range_algo(t_stack **a, t_stack **b, int end, int size)
+void	range_algo(t_stack **a, t_stack **b, size_t end, size_t size)
 {
-	int	start;
+	size_t	start;
+	size_t	idx;
 
-	start = 0;
 	while (size--)
 	{
-	//	if (size > 1)
-	//		swap_tow_close(a, true);
+		if (size > 1)
+			swap_tow_close(a, true);
 		if ((*a)->idx <= end)
 		{
+			idx = (*a)->idx;
 			ft_pb(a, b, true);
-			if (*a && (*a)->idx < start)
+			if (*a && idx < start)
 				ft_rb(b, true);
 			if (start)
 				swap_tow_close(b, false);
@@ -142,16 +151,10 @@ void	range_algo(t_stack **a, t_stack **b, int end, int size)
 	complite_algo(a, b);
 }
 
-void	sort_end(t_stack **a, t_stack **b, int size)
+void	sort_end(t_stack **a, t_stack **b, size_t size)
 {
 	if (size <= 100)
-		range_algo(a, b, 15, size);
-	else if (size <= 200)
-		range_algo(a, b, 20, size);
-	else if (size <= 300)
-		range_algo(a, b, 30, size);
-	else if (size <= 400)
-		range_algo(a, b, 40, size);
+		range_algo(a, b, size / 6, size);
 	else
-		range_algo(a, b, 50, size);
+		range_algo(a, b, size / 15, size);
 }

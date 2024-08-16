@@ -35,7 +35,7 @@ void	ft_lstadd_back(t_stack **head, t_stack *new);
 //	cleare list \"head\"
 void	ft_lstclear(t_stack **head);
 //	calculat number of node in list
-int	ft_lstsize(t_stack *head);
+size_t	ft_lstsize(t_stack *head);
 //	create new t_stack with number and index
 t_stack	*ft_lstnew(int nbr, size_t idx);
 //	check arg is numeric
@@ -79,9 +79,9 @@ void	sort_three(t_stack **head, int size);
 //	sort five
 void	sort_five(t_stack **a, t_stack **b, int size);
 //	sort end
-void	sort_end(t_stack **a, t_stack **b, int size);
+void	sort_end(t_stack **a, t_stack **b, size_t size);
 //	swap_tow_close
 void	swap_tow_close(t_stack **head, bool flag);
 //	range algo
-void	range_algo(t_stack **a, t_stack **b, int end, int size);
+void	range_algo(t_stack **a, t_stack **b, size_t end, size_t size);
 #endif
