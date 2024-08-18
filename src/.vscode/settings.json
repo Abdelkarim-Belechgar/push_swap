@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "unistd.h": "c",
-        "stdlib.h": "c",
-        "checker.h": "c",
-        "push_swap.h": "c",
-        "stdbool.h": "c"
-    }
-}
